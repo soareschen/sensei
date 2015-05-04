@@ -1,4 +1,4 @@
-name: sensei
+name: sensei-meta
 dependencies:
   - base >= 4.7 && < 5
   - base-compat >= 0.8
@@ -25,20 +25,15 @@ library:
     - doctest/ghci-wrapper/src/
 
 executables:
-  sensei:
+  sensei-meta:
     main: driver/Main.hs
     dependencies:
-      - sensei
+      - sensei-meta
 
-  sensei-web:
+  sensei-web-meta:
     main: driver/Web.hs
     dependencies:
-      - sensei
-
-  seito:
-    main: driver/Client.hs
-    dependencies:
-      - sensei
+      - sensei-meta
 
 tests:
   spec:
@@ -46,7 +41,7 @@ tests:
     source-dirs:
       - test
     dependencies:
-      - sensei
+      - sensei-meta
       - hspec == 2.*
       - hspec-wai
       - mockery
